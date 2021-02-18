@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>interview</title>
-    <!-- <script src="./findCommonElementsInKArrays.js"></script> -->
-    <script src="./tabsAndFeeds.js"></script>
-</head>
-<body>
-    // 使用已经提供的组件及API，实现一个简单的Tabs+Feeds的功能（Feeds可以理解为类似瀑布流之类的组件），用常用的技术栈实现。
+    <script src="./findCommonElementsInKArrays.js"></script>
+    <!-- <script src="./tabsAndFeeds.js"></script> -->
+  </head>
+  <body>
+    //
+    使用已经提供的组件及API，实现一个简单的Tabs+Feeds的功能（Feeds可以理解为类似瀑布流之类的组件），用常用的技术栈实现。
+    //
+    该方法用于加载feeds数据，返回一个Promise对象，成功后返回feedsData（Array）。
+    //
+    入参中，key用来区分不同的数据源，pageNo是请求的页数，从1开始，pageSize是页大小
+    <!-- feedsLoader(key, pageNo, pageSize = 20) => Promise<FeedsData> -->
 
-    // 该方法用于加载feeds数据，返回一个Promise对象，成功后返回feedsData（Array）。
-    // 入参中，key用来区分不同的数据源，pageNo是请求的页数，从1开始，pageSize是页大小
-    feedsLoader(key, pageNo, pageSize = 20) => Promise<FeedsData>
-
-    // Tabs组件，activeIndex是当前选中的tabs索引
-    // panes属性的数据结构 => [key1, key2, ...] 其中每一项的key值用于查询API
-    // onTabChangeHandler(index) 是tabs切换后的回调函数，返回新的索引index（对应panes的索引）
-    <Tabs activeIndex={activeIndex} panes={panes} onTabChange={onTabChangeHandler} />
-    // data属性的数据结构等同feedsData，让Feeds组件可以渲染数据
-    // empty属性可以让Feeds展示数据为空时的样式
-    // loading属性可以让Feeds还没有数据时，展示loading的一个样式
-    // onLoadMoreHandler用来监听是否触底，从而触发加载下一页的逻辑
-    <Feeds data={data} empty={false} loading={false} onLoadMore={onLoadMoreHandler} />
-</body>
+    // Tabs组件，activeIndex是当前选中的tabs索引 // panes属性的数据结构 =>
+    [key1, key2, ...] 其中每一项的key值用于查询API // onTabChangeHandler(index)
+    是tabs切换后的回调函数，返回新的索引index（对应panes的索引）
+    <!-- <Tabs activeIndex={activeIndex} panes={panes} onTabChange={onTabChangeHandler} /> -->
+    // data属性的数据结构等同feedsData，让Feeds组件可以渲染数据 //
+    empty属性可以让Feeds展示数据为空时的样式 //
+    loading属性可以让Feeds还没有数据时，展示loading的一个样式 //
+    onLoadMoreHandler用来监听是否触底，从而触发加载下一页的逻辑
+    <!-- <Feeds data={data} empty={false} loading={false} onLoadMore={onLoadMoreHandler} /> -->
+  </body>
 </html>
